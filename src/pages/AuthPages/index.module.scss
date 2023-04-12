@@ -1,1 +1,11 @@
 @import '../../sass/main.scss';
+
+.authPagesContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .logo {
+    margin-top: 5rem;
+  }
+}

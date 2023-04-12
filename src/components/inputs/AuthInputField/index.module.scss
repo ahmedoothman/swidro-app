@@ -1,0 +1,40 @@
+@import '../../../sass/main.scss';
+
+.input-field {
+  display: flex;
+  width: 25rem;
+  height: 4.7rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  border: 2px solid $grey-color-main;
+  .side-icon {
+    background-color: $blue-color-main;
+    width: 5rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  input {
+    flex-grow: 1;
+    border: none;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding-left: 1rem;
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+}
+.error {
+  border: 2px solid $red-color-light;
+  input {
+    background-color: $red-color-light;
+    &::placeholder {
+      color: $white-color-main;
+      font-weight: 400;
+    }
+  }
+}

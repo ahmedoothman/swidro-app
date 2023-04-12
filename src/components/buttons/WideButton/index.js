@@ -1,6 +1,6 @@
 import React from 'react';
 // styles
-import styles from './WideButton.module.scss';
+import styles from './index.module.scss';
 // React
 const WideButton = React.memo(({ text, onPress }) => {
   const clickHandler = async () => {
