@@ -12,7 +12,7 @@ const AuthPages = () => {
           <img src={WideLogo} alt='WideLogo' />
         </div>
       </div>
-      <div>
+      <div className={styles.bodyContainer}>
         <Outlet />
       </div>
     </div>
