@@ -1,0 +1,22 @@
+@import '../../../sass/main.scss';
+
+.btn {
+  background-color: $blue-color-main;
+  color: $white-color-main;
+  font-family: $main-font;
+  font-size: 1.8rem;
+  font-weight: 500;
+  height: 4.7rem;
+  width: 25rem;
+  border-radius: 1rem;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: $blue-color-dark;
+  }
+}
