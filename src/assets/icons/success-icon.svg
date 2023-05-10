@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46">
+  <g id="success-icon" transform="translate(-982 -472)">
+    <path id="success-icon-2" data-name="success-icon" d="M28.281,6.281,11,23.563,3.719,16.281,2.281,17.719l8,8,.719.688.719-.687,18-18Z" transform="translate(988.719 478.719)" fill="#29ac50"/>
+    <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(982 472)" fill="rgba(255,255,255,0)" stroke="#29ac50" stroke-width="2">
+      <circle cx="23" cy="23" r="23" stroke="none"/>
+      <circle cx="23" cy="23" r="22" fill="none"/>
+    </g>
+  </g>
+</svg>

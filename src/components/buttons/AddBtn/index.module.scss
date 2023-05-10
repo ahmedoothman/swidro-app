@@ -1,0 +1,23 @@
+@import '../../../sass/main.scss';
+
+.btn {
+  background-color: $white-color-main;
+  color: $blue-color-dark;
+  font-family: $main-font;
+  font-size: 1.5rem;
+  font-weight: 500;
+  height: 4.7rem;
+  width: auto;
+  border-radius: 1rem;
+  padding: 0rem 2rem;
+  border: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  img {
+    margin-right: 1rem;
+    width: 2rem;
+  }
+}

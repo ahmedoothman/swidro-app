@@ -9,11 +9,11 @@ import React, {
 // styles
 import styles from './index.module.scss';
 // imgs
-import PersonIcon from '../../../assets/icons/person-icon.png';
-import EmailIcon from '../../../assets/icons/email-icon.png';
-import PasswordIcon from '../../../assets/icons/lock-icon.png';
-import OrgNameIcon from '../../../assets/icons/org-name-icon.png';
-import LocationIcon from '../../../assets/icons/location-icon.png';
+import PersonIcon from '../../../assets/icons/person-icon.svg';
+import EmailIcon from '../../../assets/icons/email-icon.svg';
+import PasswordIcon from '../../../assets/icons/lock-icon.svg';
+import OrgNameIcon from '../../../assets/icons/org-name-icon.svg';
+import LocationIcon from '../../../assets/icons/location-icon.svg';
 // reducer
 const inputFieldStatesIntialState = {
   placeholder: 'Username',

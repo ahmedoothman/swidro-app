@@ -1,0 +1,22 @@
+@import '../../../sass/main.scss';
+.dashItemContainer {
+  background-color: $white-color-main;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+.dashItemField {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+.actionsBox {
+  display: flex;
+  justify-content: space-between;
+  width: 7rem;
+}

@@ -1,0 +1,37 @@
+@import '../../sass/main.scss';
+// Profile Box
+.profileBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 1.5rem;
+  color: $blue-color-dark;
+  font-weight: 500;
+  font-size: 1.1rem;
+  border-radius: 1rem;
+  padding: 0rem 1rem;
+}
+.profileImg {
+  width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  img {
+    width: 100%;
+  }
+}
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  p {
+    margin: 0rem;
+    padding: 0rem;
+    &:first-child {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+  }
+}

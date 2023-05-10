@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 // styles
 import styles from './index.module.scss';
 // images
-import WideLogo from '../../assets/img/colored-logo-big.png';
+import WideLogo from '../../assets/img/colored-logo-big.svg';
 const AuthPages = () => {
   return (
     <div className={styles.authPagesContainer}>

@@ -1,5 +1,12 @@
 // react
-import React, { Fragment, useReducer, useRef, useCallback } from 'react';
+import React, {
+  Fragment,
+  useReducer,
+  useRef,
+  useCallback,
+  useState,
+  useEffect,
+} from 'react';
 // router
 import { useNavigate } from 'react-router-dom';
 // styles
@@ -10,6 +17,8 @@ import { AuthInputField } from '../../../components/inputs/AuthInputField';
 import { Seperator } from '../../../components/seperator';
 import { LinkCustom } from '../../../components/LinkCustom';
 import { SmallSpinner } from '../../../components/spinners/smallSpinner';
+// libraries
+import Cookies from 'js-cookie';
 // reducer
 import { signInStatesReducer, signInStatesInitialState } from './indexReducer';
 //Services
@@ -29,6 +38,8 @@ const SignIn = React.memo(() => {
     signInStatesReducer,
     signInStatesInitialState
   );
+  // States
+  const [isRememberMe, setIsRememberMe] = useState(Cookies.get('token'));
   // Refs
   const userNameInputRef = useRef();
   const passwordInputRef = useRef();
@@ -36,6 +47,13 @@ const SignIn = React.memo(() => {
   const handleCloseSnackbar = () => {
     dispatchSignInStates({ type: 'CLEAR' });
   };
+  useEffect(() => {
+    const RememberMe = !!isRememberMe;
+    // if user is already logged in
+    if (RememberMe) {
+      navigate('/dashboard/', { replace: true });
+    }
+  }, []);
   /***************************************************************************/
   /* Name : forwardToSignUp */
   /* Description : forward to sign up page */

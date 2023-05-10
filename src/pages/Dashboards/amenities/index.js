@@ -1,8 +1,20 @@
 // react
 import React, { Fragment, useEffect } from 'react';
-
 // styles
 import styles from './index.module.scss';
+// components
+import { DashCore } from '../../../components/Elements/DashPageCore';
+
+const amenitiesData = [
+  {
+    id: 1,
+    name: 'Swimming Pool',
+  },
+  {
+    id: 2,
+    name: 'Gym',
+  },
+];
 
 /***************************************************************************/
 /* Name : Amenities React Component */
@@ -22,7 +34,7 @@ const Amenities = React.memo(() => {
 
   return (
     <Fragment>
-      <p>Amenities</p>
+      <DashCore pageName='Amenities' data={amenitiesData} />
     </Fragment>
   );
 });

@@ -1,0 +1,81 @@
+@import '../../sass/main.scss';
+.sideNavContainer {
+  background-image: linear-gradient(180deg, $blue-color-main, $blue-color-dark);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  //   padding: 1rem;
+}
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  width: 20rem;
+  height: 10rem;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.sideNavMenu {
+  width: 100%;
+  overflow: hidden;
+}
+.sideNavMenuItem {
+  display: flex;
+  padding: 0.1rem 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: $white-color-main;
+  border-left: 0.4rem solid transparent;
+  cursor: pointer;
+  font-size: 1.7rem;
+  img {
+    width: 2.5rem;
+    margin-right: 2rem;
+    margin-left: 1rem;
+  }
+}
+.sideNavMenuItem:hover {
+  transition: all 0.4s ease-in-out;
+  background-color: $blue-color-light;
+  border-left: 0.4rem solid $white-color-main;
+}
+.sideNavMenuItemActive {
+  display: flex;
+  padding: 0.1rem 1rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: $white-color-main;
+  cursor: pointer;
+  font-size: 1.7rem;
+  img {
+    width: 2.5rem;
+    margin-right: 2rem;
+    margin-left: 1rem;
+  }
+  transition: all 0.4s ease-in-out;
+  background-color: $blue-color-light;
+  border-left: 0.4rem solid $white-color-main;
+}
+.sideNavLogOut {
+  display: flex;
+  padding: 2.1rem 3rem;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 1rem;
+  margin-left: 2.5rem;
+  color: $white-color-main;
+  border-left: 0.4rem solid transparent;
+  cursor: pointer;
+  font-size: 1.7rem;
+  img {
+    width: 2.5rem;
+    margin-right: 2rem;
+    margin-left: 1rem;
+  }
+}

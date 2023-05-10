@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46">
+  <g id="error-icon" transform="translate(-869 -401)">
+    <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(869 401)" fill="rgba(255,255,255,0)" stroke="#e20808" stroke-width="2">
+      <circle cx="23" cy="23" r="23" stroke="none"/>
+      <circle cx="23" cy="23" r="22" fill="none"/>
+    </g>
+    <path id="error-icon-2" data-name="error-icon" d="M8.719,7.281,7.281,8.719,14.563,16,7.281,23.281l1.438,1.438L16,17.438l7.281,7.281,1.438-1.437L17.438,16l7.281-7.281L23.281,7.281,16,14.563Z" transform="translate(875.719 407.719)" fill="#e20808"/>
+  </g>
+</svg>

@@ -1,1 +1,13 @@
 @import '../../../sass/main.scss';
+
+.settingsContainer {
+  padding-top: 2rem;
+  padding-left: 5rem;
+}
+.settingsItemContent {
+  margin-bottom: 3rem;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

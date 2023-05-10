@@ -17,13 +17,21 @@ import { Devices } from './pages/Dashboards/devices';
 import { Monitoring } from './pages/Dashboards/monitoring';
 import { Settings } from './pages/Dashboards/settings';
 import { Staff } from './pages/Dashboards/staff';
+// MUI spinners
+import CircularProgress from '@mui/material/CircularProgress';
 // styles
-import './App.module.scss';
+import styles from './App.module.scss';
 
 function App() {
   return (
     <div className='App'>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <div className={styles.pendingPage}>
+            <CircularProgress size={60} />
+          </div>
+        }
+      >
         <Routes>
           {/* Auth Routes */}
           <Route path='/*' element={<AuthPages />}>
@@ -39,8 +47,13 @@ function App() {
             <Route path='devices' element={<Devices />} />
             <Route path='settings' element={<Settings />} />
             <Route path='staff' element={<Staff />} />
+            <Route path='notifications' element={<p>notifications</p>} />
             <Route path='*' element={<Monitoring />} />
           </Route>
+          <Route
+            path='/lifeguard-monitoring'
+            element={<p>lifeguard-monitoring</p>}
+          />
         </Routes>
       </Suspense>
     </div>

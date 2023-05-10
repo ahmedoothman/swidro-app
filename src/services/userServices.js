@@ -157,6 +157,15 @@ export const signUpService = async (data) => {
   }
 };
 /***********************************************/
+/******************* logOut *******************/
+/**********************************************/
+export const logOutService = async () => {
+  // clear cookies
+  Cookies.remove('token');
+  Cookies.remove('userName');
+  Cookies.remove('role');
+};
+/***********************************************/
 /****************** Verify Email **************/
 /**********************************************/
 export const verifyEmailService = async (verifyToken) => {

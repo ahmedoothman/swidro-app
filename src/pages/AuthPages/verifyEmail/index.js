@@ -5,8 +5,8 @@ import { useParams } from 'react-router-dom';
 // styles
 import styles from './index.module.scss';
 // img
-import SuccessImg from '../../../assets/icons/success-icon.png';
-import ErrorImg from '../../../assets/icons/error-icon.png';
+import SuccessImg from '../../../assets/icons/success-icon.svg';
+import ErrorImg from '../../../assets/icons/error-icon.svg';
 import { LinkCustom } from '../../../components/LinkCustom';
 // services
 import { verifyEmailService } from '../../../services/userServices';

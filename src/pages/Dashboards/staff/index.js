@@ -1,9 +1,22 @@
 // react
 import React, { Fragment, useEffect } from 'react';
-
 // styles
 import styles from './index.module.scss';
+// Components
+import { DashCore } from '../../../components/Elements/DashPageCore';
 
+const StaffData = [
+  {
+    id: 1,
+    name: 'John Doe',
+    role: 'Admin',
+  },
+  {
+    id: 2,
+    name: 'John Doe',
+    role: 'Admin',
+  },
+];
 /***************************************************************************/
 /* Name : Staff React Component */
 /***************************************************************************/
@@ -22,7 +35,7 @@ const Staff = React.memo(() => {
 
   return (
     <Fragment>
-      <p>Staff</p>
+      <DashCore pageName='Staff' data={StaffData} />
     </Fragment>
   );
 });

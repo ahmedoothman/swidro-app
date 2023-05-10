@@ -3,7 +3,7 @@ import React from 'react';
 // styles
 import styles from './index.module.scss';
 // imgs
-import InfoIcon from '../../assets/icons/info-icon.png';
+import InfoIcon from '../../assets/icons/info-icon.svg';
 const Note = React.memo(({ text }) => {
   return (
     <div className={styles['container']}>
