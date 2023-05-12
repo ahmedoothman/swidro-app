@@ -2,25 +2,11 @@
 import React, { Fragment, useEffect } from 'react';
 // styles
 import styles from './index.module.scss';
-// Components
-import { DashCore } from '../../../components/DashElements/DashPageCore';
 
-const StaffData = [
-  {
-    id: 1,
-    name: 'John Doe',
-    role: 'Admin',
-  },
-  {
-    id: 2,
-    name: 'John Doe',
-    role: 'Admin',
-  },
-];
 /***************************************************************************/
-/* Name : Staff React Component */
+/* Name : Notifications React Component */
 /***************************************************************************/
-const Staff = React.memo(() => {
+const Notifications = React.memo(() => {
   // useEffect
   useEffect(() => {
     (async () => {
@@ -34,10 +20,11 @@ const Staff = React.memo(() => {
   /***************************************************************************/
 
   return (
-    <Fragment>
-      <DashCore pageName='Staff' data={StaffData} />
-    </Fragment>
+    <div className={styles.container}>
+      <h1>Notifications</h1>
+      <p>There is no notifications yet</p>
+    </div>
   );
 });
 
-export { Staff };
+export { Notifications };

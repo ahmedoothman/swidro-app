@@ -17,6 +17,9 @@ import { Devices } from './pages/Dashboards/devices';
 import { Monitoring } from './pages/Dashboards/monitoring';
 import { Settings } from './pages/Dashboards/settings';
 import { Staff } from './pages/Dashboards/staff';
+import { Notifications } from './pages/Dashboards/notifications';
+// Lifeguard Pages
+import { LifeguardMonitoring } from './pages/LifeGuardPages/monitoring';
 // MUI spinners
 import CircularProgress from '@mui/material/CircularProgress';
 // styles
@@ -47,12 +50,12 @@ function App() {
             <Route path='devices' element={<Devices />} />
             <Route path='settings' element={<Settings />} />
             <Route path='staff' element={<Staff />} />
-            <Route path='notifications' element={<p>notifications</p>} />
+            <Route path='notifications' element={<Notifications />} />
             <Route path='*' element={<Monitoring />} />
           </Route>
           <Route
             path='/lifeguard-monitoring'
-            element={<p>lifeguard-monitoring</p>}
+            element={<LifeguardMonitoring />}
           />
         </Routes>
       </Suspense>

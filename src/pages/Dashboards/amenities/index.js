@@ -3,7 +3,7 @@ import React, { Fragment, useEffect } from 'react';
 // styles
 import styles from './index.module.scss';
 // components
-import { DashCore } from '../../../components/Elements/DashPageCore';
+import { DashCore } from '../../../components/DashElements/DashPageCore';
 
 const amenitiesData = [
   {

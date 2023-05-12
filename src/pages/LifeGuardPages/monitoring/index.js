@@ -5,6 +5,7 @@ import styles from './index.module.scss';
 // components
 import { SelectComponent } from '../../../components/select';
 import { DashPageBoxItem } from '../../../components/DashElements/DashPageBoxItem';
+import { TopNavLG } from '../../../layouts/topnavlg';
 const AmenitiesData = [
   {
     id: 1,
@@ -61,9 +62,9 @@ const SwimmerData = [
   },
 ];
 /***************************************************************************/
-/* Name : Monitoring React Component */
+/* Name : LifeguardMonitoring React Component */
 /***************************************************************************/
-const Monitoring = React.memo(() => {
+const LifeguardMonitoring = React.memo(() => {
   // useEffect
   useEffect(() => {
     (async () => {
@@ -78,6 +79,7 @@ const Monitoring = React.memo(() => {
 
   return (
     <Fragment>
+      <TopNavLG />
       <div className={styles.header}>
         <SelectComponent data={AmenitiesData} />
       </div>
@@ -90,4 +92,4 @@ const Monitoring = React.memo(() => {
   );
 });
 
-export { Monitoring };
+export { LifeguardMonitoring };
