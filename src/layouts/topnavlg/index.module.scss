@@ -110,3 +110,14 @@
     width: 100%;
   }
 }
+
+.logOut {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  img {
+    width: 3rem;
+    margin-right: 1rem;
+  }
+}

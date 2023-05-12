@@ -10,6 +10,8 @@ import styles from './index.module.scss';
 // images
 import CopyIcon from '../../assets/icons/copy-icon.svg';
 import Logo from '../../assets/img/logo-blue-md.svg';
+import LogOutIcon from '../../assets/icons/logout-icon-blue.svg';
+import { logOutService } from '../../services/userServices';
 /***************************************************************************/
 /* Name : TopNav React Component */
 /***************************************************************************/
@@ -49,7 +51,12 @@ const TopNavLG = React.memo(() => {
   /* Name : load */
   /* Description : load */
   /***************************************************************************/
-
+  const logOutHandler = async () => {
+    // calling logOutService
+    await logOutService();
+    // navigate to sign in page
+    navigate('/');
+  };
   return (
     <Fragment>
       <div className={styles.topNavContainer}>
@@ -65,6 +72,10 @@ const TopNavLG = React.memo(() => {
             </div>
           </div>
           <ProfileBox />
+          <div className={styles.logOut} onClick={logOutHandler}>
+            <img src={LogOutIcon} alt='logo' />
+            log Out
+          </div>
         </div>
       </div>
     </Fragment>
