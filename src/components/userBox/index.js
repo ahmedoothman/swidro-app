@@ -19,9 +19,8 @@ const ProfileBox = React.memo(({}) => {
   const { role } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    dispatch({
-      type: authActions.updateInfo(),
-    });
+    dispatch(authActions.updateInfo());
+    console.log(userName, role);
   }, []);
   return (
     <div className={styles.profileBox}>

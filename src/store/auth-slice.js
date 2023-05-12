@@ -15,8 +15,8 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     updateInfo(state, action) {
-      role = Cookies.get('role');
-      userName = Cookies.get('userName');
+      state.role = Cookies.get('role');
+      state.userName = Cookies.get('userName');
     },
   },
 });
