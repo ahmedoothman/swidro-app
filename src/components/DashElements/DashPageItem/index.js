@@ -18,10 +18,19 @@ const DashItem = React.memo(({ pageName, onDelete, onEdit, data }) => {
   }, []);
 
   /***************************************************************************/
-  /* Name : load */
-  /* Description : load */
+  /* Name : delete item */
+  /* Description : delete item */
   /***************************************************************************/
-
+  const deleteItem = async () => {
+    onDelete(data._id);
+  };
+  /***************************************************************************/
+  /* Name : edit item */
+  /* Description : delete item */
+  /***************************************************************************/
+  const editItem = async () => {
+    onEdit(data._id);
+  };
   return (
     <Fragment>
       <div className={styles.dashItemContainer}>
@@ -34,7 +43,7 @@ const DashItem = React.memo(({ pageName, onDelete, onEdit, data }) => {
         )}
         {pageName === 'Staff' && (
           <Fragment>
-            <div className={styles.dashItemField}>{data.name}</div>
+            <div className={styles.dashItemField}>{data.userName}</div>
             <div className={styles.dashItemField}>{data.role}</div>
           </Fragment>
         )}
@@ -44,8 +53,8 @@ const DashItem = React.memo(({ pageName, onDelete, onEdit, data }) => {
           </Fragment>
         )}
         <div className={styles.actionsBox}>
-          <DeleteBtn text='Delete' onPress={onDelete} />
-          <EditBtn text='Edit' onPress={onEdit} />
+          <DeleteBtn text='Delete' onPress={deleteItem} />
+          <EditBtn text='Edit' onPress={editItem} />
         </div>
       </div>
     </Fragment>

@@ -109,7 +109,6 @@ const SignIn = React.memo(() => {
           type: 'SUCCESS',
           successMessage: 'Logged In Successfully ',
         });
-        console.log(response.user.role);
         if (response.user.role !== 'lifeguard') {
           navigate('/dashboard/', { replace: true });
         } else {

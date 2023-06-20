@@ -10,7 +10,15 @@ let token = Cookies.get('token');
 /* *********** set Cookies Service *********** */
 /* ****************************************** */
 
-export const setCookiesService = (token, userName, role) => {
+export const setCookiesService = (
+  token,
+  userName,
+  role,
+  resortId,
+  resortName,
+  resortLocation,
+  resortOwner
+) => {
   if (token) {
     Cookies.set('token', token, {
       path: '/',
@@ -25,6 +33,30 @@ export const setCookiesService = (token, userName, role) => {
   }
   if (role) {
     Cookies.set('role', role, {
+      path: '/',
+      expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
+    });
+  }
+  if (resortId) {
+    Cookies.set('resortId', resortId, {
+      path: '/',
+      expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
+    });
+  }
+  if (resortName) {
+    Cookies.set('resortName', resortName, {
+      path: '/',
+      expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
+    });
+  }
+  if (resortLocation) {
+    Cookies.set('resortLocation', resortLocation, {
+      path: '/',
+      expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
+    });
+  }
+  if (resortOwner) {
+    Cookies.set('resortOwner', resortOwner, {
       path: '/',
       expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
     });
@@ -130,15 +162,27 @@ export const signInService = async (data) => {
     setCookiesService(
       response.data.token,
       response.data.data.user.userName,
-      response.data.data.user.role
+      response.data.data.user.role,
+      response.data.data.resort._id,
+      response.data.data.resort.name,
+      response.data.data.resort.location,
+      response.data.data.resort.owner
     );
     return { status: 'success', user: response.data.data.user };
   } catch (error) {
-    return {
-      status: 'error',
-      statusCode: error.response.statusCode,
-      message: error.response.data.message,
-    };
+    if (error.code === 'ERR_NETWORK') {
+      return {
+        status: 'error',
+        statusCode: error.code,
+        message: error.message + ' Please check your internet connection',
+      };
+    } else {
+      return {
+        status: 'error',
+        statusCode: error.response.statusCode,
+        message: error.response.data.message,
+      };
+    }
   }
 };
 /***********************************************/
@@ -149,11 +193,19 @@ export const signUpService = async (data) => {
     const response = await axios.post(`${api_url}/api/resort/signup`, data);
     return { status: 'success' };
   } catch (error) {
-    return {
-      status: 'error',
-      statusCode: error.response.statusCode,
-      message: error.response.data.message,
-    };
+    if (error.code === 'ERR_NETWORK') {
+      return {
+        status: 'error',
+        statusCode: error.code,
+        message: error.message + ' Please check your internet connection',
+      };
+    } else {
+      return {
+        status: 'error',
+        statusCode: error.response.statusCode,
+        message: error.response.data.message,
+      };
+    }
   }
 };
 /***********************************************/
@@ -175,11 +227,19 @@ export const verifyEmailService = async (verifyToken) => {
     );
     return { status: 'success' };
   } catch (error) {
-    return {
-      status: 'error',
-      statusCode: error.response.statusCode,
-      message: error.response.data.message,
-    };
+    if (error.code === 'ERR_NETWORK') {
+      return {
+        status: 'error',
+        statusCode: error.code,
+        message: error.message + ' Please check your internet connection',
+      };
+    } else {
+      return {
+        status: 'error',
+        statusCode: error.response.statusCode,
+        message: error.response.data.message,
+      };
+    }
   }
 };
 /***********************************************/
@@ -193,11 +253,19 @@ export const forgetPasswordService = async (data) => {
     );
     return { status: 'success' };
   } catch (error) {
-    return {
-      status: 'error',
-      statusCode: error.response.statusCode,
-      message: error.response.data.message,
-    };
+    if (error.code === 'ERR_NETWORK') {
+      return {
+        status: 'error',
+        statusCode: error.code,
+        message: error.message + ' Please check your internet connection',
+      };
+    } else {
+      return {
+        status: 'error',
+        statusCode: error.response.statusCode,
+        message: error.response.data.message,
+      };
+    }
   }
 };
 /***********************************************/
@@ -211,10 +279,18 @@ export const resetPasswordService = async (data, resetToken) => {
     );
     return { status: 'success' };
   } catch (error) {
-    return {
-      status: 'error',
-      statusCode: error.response.statusCode,
-      message: error.response.data.message,
-    };
+    if (error.code === 'ERR_NETWORK') {
+      return {
+        status: 'error',
+        statusCode: error.code,
+        message: error.message + ' Please check your internet connection',
+      };
+    } else {
+      return {
+        status: 'error',
+        statusCode: error.response.statusCode,
+        message: error.response.data.message,
+      };
+    }
   }
 };

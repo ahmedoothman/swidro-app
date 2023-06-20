@@ -31,6 +31,7 @@ const WideInputFieldComp = React.forwardRef(
         activeError,
         clearError,
         getInputValue: () => inputRef.current.value,
+        setInputValue: (value) => (inputRef.current.value = value),
       };
     });
     // active error function

@@ -23,7 +23,7 @@ const Amenities = {
 /***************************************************************************/
 /* Name : PageHeader React Component */
 /***************************************************************************/
-const PageHeader = React.memo(({ pageName }) => {
+const PageHeader = React.memo(({ pageName, openFormHandler }) => {
   // useEffect
   useEffect(() => {
     (async () => {
@@ -41,7 +41,7 @@ const PageHeader = React.memo(({ pageName }) => {
       <div className={styles.pageHeaderContainer}>
         <div className={styles.pageHeaderTop}>
           <h1>{pageName}</h1>
-          <AddBtn text='Add' />
+          <AddBtn text='Add' onPress={openFormHandler} />
         </div>
         <div className={styles.pageHeaderBottom}>
           {pageName === 'Devices' &&

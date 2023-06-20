@@ -20,7 +20,6 @@ const ProfileBox = React.memo(({}) => {
 
   useEffect(() => {
     dispatch(authActions.updateInfo());
-    console.log(userName, role);
   }, []);
   return (
     <div className={styles.profileBox}>
