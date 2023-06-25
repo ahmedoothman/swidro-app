@@ -26,11 +26,10 @@ import { staffStatesReducer, staffStatesInitialState } from './indexReducer';
 // MUI
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
-import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import { SmallSpinner } from '../../../components/spinners/smallSpinner';
 /***************************************************************************/
 /* Name : Staff React Component */
@@ -283,7 +282,7 @@ const Staff = React.memo(() => {
       <DashCore
         pageName='Staff'
         data={StaffData}
-        panding={staffStates.pending}
+        pending={staffStates.pending}
         deleteItem={deleteStaff}
         editItem={openEditStaff}
         openFormHandler={openFormHandler}
@@ -387,7 +386,7 @@ const Staff = React.memo(() => {
         autoHideDuration={10000}
         onClose={handleCloseSnackbar}
         anchorOrigin={{
-          vertical: 'bottom',
+          vertical: 'top',
           horizontal: 'center',
         }}
       >

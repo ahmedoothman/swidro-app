@@ -1,5 +1,5 @@
 // react
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 // styles
 import styles from './index.module.scss';
 // components
@@ -13,21 +13,49 @@ import BatteryIcon from '../../../assets/icons/battery-icon.svg';
 /***************************************************************************/
 /* Name : DashPageBoxItem React Component */
 /***************************************************************************/
-const DashPageBoxItem = React.memo(({ data }) => {
+const DashPageBoxItem = React.memo(({ data, onDelete, onEdit }) => {
+  /***************************************************************************/
+  /* Edit Handler */
+  /***************************************************************************/
+  const editHandler = () => {
+    // check if the function is passed
+    if (!onEdit) return;
+    onEdit(data._id);
+  };
+  /***************************************************************************/
+  /* Delete Handler */
+  /***************************************************************************/
+  const deleteHandler = () => {
+    // check if the function is passed
+    if (!onDelete) return;
+    onDelete(data._id);
+  };
+  // useEffect
+  useEffect(() => {
+    (async () => {
+      //calling load
+    })();
+  }, []);
+
   return (
     <Fragment>
       <div className={styles.container}>
-        <div className={styles.infoPart}>
+        <div
+          className={styles.infoPart}
+          style={{
+            backgroundColor: data.status === 'normal' ? '#273c75' : '#d63031',
+          }}
+        >
           <div className={styles.topActions}>
             <div className={styles.code}>
               <div className={styles.iconContainer}>
                 <img src={DeviceIcon} alt='icon' />
               </div>
-              {data.code}
+              {data.deviceId}
             </div>
             <div className={styles.actions}>
-              <EditBtn />
-              <DeleteBtn />
+              <EditBtn onPress={editHandler} />
+              <DeleteBtn onPress={deleteHandler} />
             </div>
           </div>
           <div className={styles.info}>

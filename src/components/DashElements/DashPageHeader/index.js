@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 import { AddBtn } from '../../buttons/AddBtn';
 const DevicesLabel = {
   1: `Name`,
-  2: 'Code',
+  2: 'Device ID',
   3: 'Battery',
   4: 'Actions',
 };

@@ -7,11 +7,11 @@ let api_url = store.getState().auth.api_url;
 let token = Cookies.get('token');
 
 /* ******************************************** */
-/* ************* get devices data ****************/
+/* ************* get Swimmers data ****************/
 /* ****************************************** */
-export const getDevicesDataServices = async () => {
+export const getSwimmersDataServices = async () => {
   try {
-    const response = await axios.get(`${api_url}/api/devices/`, {
+    const response = await axios.get(`${api_url}/api/swimmers/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -34,11 +34,42 @@ export const getDevicesDataServices = async () => {
   }
 };
 /* ******************************************** */
+/* ************* get Swimmers data today ****************/
+/* ****************************************** */
+export const getSwimmersTodayDataServices = async (amenity) => {
+  try {
+    // send amenity in the params
+    const response = await axios.get(
+      `${api_url}/api/swimmers/getSwimmersToday/${amenity}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return { status: 'success', dataArray: response.data.data };
+  } catch (error) {
+    if (error.code === 'ERR_NETWORK') {
+      return {
+        status: 'error',
+        statusCode: error.code,
+        message: error.message + ' Please check your internet connection',
+      };
+    } else {
+      return {
+        status: 'error',
+        statusCode: error.response.statusCode,
+        message: error.response.data.message,
+      };
+    }
+  }
+};
+/* ******************************************** */
 /* *************** add data ********************/
 /* ****************************************** */
-export const addDevicesDataServices = async (data) => {
+export const addSwimmersDataServices = async (data) => {
   try {
-    const response = await axios.post(`${api_url}/api/devices/`, data, {
+    const response = await axios.post(`${api_url}/api/Swimmers`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -61,11 +92,11 @@ export const addDevicesDataServices = async (data) => {
   }
 };
 /* *************************************************/
-/* ************* delete devices data ****************/
+/* ************* delete Swimmers data ****************/
 /* *************************************************/
-export const deleteDevicesDataServices = async (id) => {
+export const deleteSwimmersDataServices = async (id) => {
   try {
-    const response = await axios.delete(`${api_url}/api/devices/${id}`, {
+    const response = await axios.delete(`${api_url}/api/swimmers/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -88,11 +119,11 @@ export const deleteDevicesDataServices = async (id) => {
   }
 };
 /* *************************************************/
-/* ************* edit devices data *****************/
+/* ************* edit Swimmers data *******************/
 /* *************************************************/
-export const editDevicesDataServices = async (id, data) => {
+export const editSwimmersDataServices = async (id, data) => {
   try {
-    const response = await axios.patch(`${api_url}/api/devices/${id}`, data, {
+    const response = await axios.patch(`${api_url}/api/swimmers/${id}`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

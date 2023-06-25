@@ -7,11 +7,11 @@ let api_url = store.getState().auth.api_url;
 let token = Cookies.get('token');
 
 /* ******************************************** */
-/* ************* get staff data ****************/
+/* ************* get Amenities data ****************/
 /* ****************************************** */
 export const getAmenitiesDataServices = async () => {
   try {
-    const response = await axios.get(`${api_url}/api/staff/allStaff`, {
+    const response = await axios.get(`${api_url}/api/amenities/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -38,7 +38,7 @@ export const getAmenitiesDataServices = async () => {
 /* ****************************************** */
 export const addAmenitiesDataServices = async (data) => {
   try {
-    const response = await axios.post(`${api_url}/api/staff/addStaff`, data, {
+    const response = await axios.post(`${api_url}/api/amenities`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -61,11 +61,11 @@ export const addAmenitiesDataServices = async (data) => {
   }
 };
 /* *************************************************/
-/* ************* delete staff data ****************/
+/* ************* delete Amenities data ****************/
 /* *************************************************/
 export const deleteAmenitiesDataServices = async (id) => {
   try {
-    const response = await axios.delete(`${api_url}/api/staff/${id}`, {
+    const response = await axios.delete(`${api_url}/api/amenities/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -88,11 +88,11 @@ export const deleteAmenitiesDataServices = async (id) => {
   }
 };
 /* *************************************************/
-/* ************* edit staff data *******************/
+/* ************* edit Amenities data *******************/
 /* *************************************************/
 export const editAmenitiesDataServices = async (id, data) => {
   try {
-    const response = await axios.patch(`${api_url}/api/staff/${id}`, data, {
+    const response = await axios.patch(`${api_url}/api/amenities/${id}`, data, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

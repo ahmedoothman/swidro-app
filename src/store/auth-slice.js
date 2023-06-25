@@ -11,6 +11,7 @@ const initialState = {
   resortOwner: Cookies.get('resortOwner'),
   resortId: Cookies.get('resortId'),
   email: 'example@example.com',
+  swimmers: [],
   // email : Cookies.get('email'),
 };
 
@@ -25,6 +26,26 @@ const authSlice = createSlice({
       state.resortLocation = Cookies.get('resortLocation');
       state.resortOwner = Cookies.get('resortOwner');
       state.resortId = Cookies.get('resortId');
+    },
+    addtoSwimmers(state, action) {
+      // append the data to customers
+      state.swimmers.push(action.payload);
+    },
+    addArraytoSwimmers(state, action) {
+      // append the data to customers
+      state.swimmers = action.payload;
+    },
+    removeSwimmer(state, action) {
+      // remove the data from customers
+      state.swimmers = state.swimmers.filter(
+        (swimmer) => swimmer._id !== action.payload
+      );
+    },
+    updateSwimmer(state, action) {
+      // update the data from customers
+      state.swimmers = state.swimmers.map((swimmer) =>
+        swimmer._id === action.payload._id ? action.payload : { swimmer }
+      );
     },
   },
 });

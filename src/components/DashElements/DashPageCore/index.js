@@ -6,6 +6,10 @@ import styles from './index.module.scss';
 import { PageHeader } from '../DashPageHeader';
 import { DashItem } from '../DashPageItem';
 import { SmallSpinner } from '../../spinners/smallSpinner';
+// mui spinner
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+
 /***************************************************************************/
 /* Name : Dash Core React Component */
 /***************************************************************************/
@@ -24,10 +28,11 @@ const DashCore = React.memo(
           <PageHeader pageName={pageName} openFormHandler={openFormHandler} />
           {pending && (
             <div className={styles.spinnerBox}>
-              <SmallSpinner />
+              <CircularProgress />
             </div>
           )}
           {!pending &&
+            pageName !== 'Monitoring' &&
             data.map((item) => {
               return (
                 <DashItem
@@ -36,6 +41,7 @@ const DashCore = React.memo(
                   data={item}
                   onDelete={deleteItem}
                   onEdit={editItem}
+                  pending={pending}
                 />
               );
             })}

@@ -4,8 +4,17 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
+  margin: 2rem 0rem;
+  .SelectBox {
+    background-color: white;
+    border-radius: 1rem;
+    width: 33%;
+  }
+}
+.Select {
+  background-color: red;
 }
 .mainBody {
   display: flex;
