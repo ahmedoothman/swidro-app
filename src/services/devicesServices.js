@@ -10,6 +10,7 @@ let token = Cookies.get('token');
 /* ************* get devices data ****************/
 /* ****************************************** */
 export const getDevicesDataServices = async () => {
+  token = Cookies.get('token');
   try {
     const response = await axios.get(`${api_url}/api/devices/`, {
       headers: {

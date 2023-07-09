@@ -179,7 +179,6 @@ export const signInService = async (data) => {
     } else {
       return {
         status: 'error',
-        statusCode: error.response.statusCode,
         message: error.response.data.message,
       };
     }
@@ -216,6 +215,11 @@ export const logOutService = async () => {
   Cookies.remove('token');
   Cookies.remove('userName');
   Cookies.remove('role');
+  Cookies.remove('resortId');
+  Cookies.remove('resortName');
+  Cookies.remove('resortLocation');
+  Cookies.remove('resortOwner');
+  Cookies.remove('email');
 };
 /***********************************************/
 /****************** Verify Email **************/

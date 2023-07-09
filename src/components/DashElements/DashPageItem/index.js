@@ -42,8 +42,8 @@ const DashItem = React.memo(({ pageName, onDelete, onEdit, data, pending }) => {
               style={{
                 backgroundColor: data.available ? '#273c75' : '#d63031',
                 display: 'flex',
-                width: '15%',
-                marginRight: '15%',
+                width: '16%',
+                marginRight: '10%',
                 padding: '10px',
                 borderRadius: '5px',
                 color: 'white',

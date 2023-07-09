@@ -10,6 +10,7 @@ let token = Cookies.get('token');
 /* ************* get Swimmers data ****************/
 /* ****************************************** */
 export const getSwimmersDataServices = async () => {
+  token = Cookies.get('token');
   try {
     const response = await axios.get(`${api_url}/api/swimmers/`, {
       headers: {
@@ -36,11 +37,12 @@ export const getSwimmersDataServices = async () => {
 /* ******************************************** */
 /* ************* get Swimmers data today ****************/
 /* ****************************************** */
-export const getSwimmersTodayDataServices = async (amenity) => {
+export const getSwimmersTodayDataServices = async () => {
+  token = Cookies.get('token');
   try {
     // send amenity in the params
     const response = await axios.get(
-      `${api_url}/api/swimmers/getSwimmersToday/${amenity}`,
+      `${api_url}/api/swimmers/getSwimmersToday`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -49,6 +51,7 @@ export const getSwimmersTodayDataServices = async (amenity) => {
     );
     return { status: 'success', dataArray: response.data.data };
   } catch (error) {
+    console.log(error);
     if (error.code === 'ERR_NETWORK') {
       return {
         status: 'error',

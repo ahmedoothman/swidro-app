@@ -1,8 +1,9 @@
 // react
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 // router
 import { Routes, Route } from 'react-router-dom';
-// components
+// services
+import { startMqttClient } from './services/mqttServices';
 // Auth Pages
 const AuthPages = React.lazy(() => import('./pages/AuthPages'));
 import { SignUp } from './pages/AuthPages/signUp';
@@ -26,6 +27,9 @@ import CircularProgress from '@mui/material/CircularProgress';
 import styles from './App.module.scss';
 
 function App() {
+  useEffect(() => {
+    startMqttClient();
+  }, []);
   return (
     <div className='App'>
       <Suspense

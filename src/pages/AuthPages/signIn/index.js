@@ -40,6 +40,7 @@ const SignIn = React.memo(() => {
   );
   // States
   const [isRememberMe, setIsRememberMe] = useState(Cookies.get('token'));
+  const [Role, setRole] = useState(Cookies.get('role'));
   // Refs
   const userNameInputRef = useRef();
   const passwordInputRef = useRef();
@@ -50,8 +51,14 @@ const SignIn = React.memo(() => {
   useEffect(() => {
     const RememberMe = !!isRememberMe;
     // if user is already logged in
+    // if role is lifeguard
+
     if (RememberMe) {
-      navigate('/dashboard/', { replace: true });
+      if (Role === 'lifeguard') {
+        navigate('/lifeguard-monitoring', { replace: true });
+      } else {
+        navigate('/dashboard/', { replace: true });
+      }
     }
   }, []);
   /***************************************************************************/

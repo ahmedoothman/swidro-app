@@ -10,6 +10,7 @@ let token = Cookies.get('token');
 /* ************* get staff data ****************/
 /* ****************************************** */
 export const getStaffDataServices = async () => {
+  token = Cookies.get('token');
   try {
     const response = await axios.get(`${api_url}/api/staff/allStaff`, {
       headers: {

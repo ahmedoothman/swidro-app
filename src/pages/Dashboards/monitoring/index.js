@@ -18,7 +18,6 @@ import { AddBtn } from '../../../components/buttons/AddBtn';
 import { DashPageBoxItem } from '../../../components/DashElements/DashPageBoxItem';
 import { SmallSpinner } from '../../../components/spinners/smallSpinner';
 // Services
-// import { monitoringService } from '../../../services/monitoringService';
 import { getAmenitiesDataServices } from '../../../services/amenitiesServices';
 import {
   getSwimmersTodayDataServices,
@@ -98,7 +97,6 @@ const Monitoring = React.memo(() => {
     // deviceId.current.setInputValue(devices.deviceId);
     setEditId(id);
     // edit the data from redux
-    console.log('edit ' + id);
     const swimmer = swimmers.find((item) => item._id === id);
     customerName.current.setInputValue(swimmer.name);
     customerAge.current.setInputValue(swimmer.age);
@@ -140,7 +138,7 @@ const Monitoring = React.memo(() => {
   const getSwimmersToday = useCallback(async (amenity) => {
     // calling load
     dispatchMonitoringStates({ type: 'PENDING' });
-    const response = await getSwimmersTodayDataServices(amenity);
+    const response = await getSwimmersTodayDataServices();
     if (response.status === 'success') {
       // add battery and heart rate to the data
       const swimmersArray = response.dataArray.map((el) => ({
@@ -327,6 +325,7 @@ const Monitoring = React.memo(() => {
             data={el}
             onEdit={openEditFormWithData}
             onDelete={deleteData}
+            admin={true}
           />
         ))}
       </div>

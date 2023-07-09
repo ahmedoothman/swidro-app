@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 
 const initialState = {
   api_url: 'http://localhost:5000',
+  model_api_url: 'http://localhost:2023',
   role: Cookies.get('role'),
   userName: Cookies.get('userName'),
   resortName: Cookies.get('resortName'),
@@ -46,6 +47,15 @@ const authSlice = createSlice({
       state.swimmers = state.swimmers.map((swimmer) =>
         swimmer._id === action.payload._id ? action.payload : { swimmer }
       );
+    },
+    updateUser(state, action) {
+      // update the data from customers
+      state.userName = action.payload.userName;
+      state.email = action.payload.email;
+    },
+    test(state, action) {
+      console.log('test from services');
+      console.log(action.payload);
     },
   },
 });

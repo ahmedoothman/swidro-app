@@ -13,7 +13,7 @@ import BatteryIcon from '../../../assets/icons/battery-icon.svg';
 /***************************************************************************/
 /* Name : DashPageBoxItem React Component */
 /***************************************************************************/
-const DashPageBoxItem = React.memo(({ data, onDelete, onEdit }) => {
+const DashPageBoxItem = React.memo(({ data, onDelete, onEdit, admin }) => {
   /***************************************************************************/
   /* Edit Handler */
   /***************************************************************************/
@@ -53,10 +53,12 @@ const DashPageBoxItem = React.memo(({ data, onDelete, onEdit }) => {
               </div>
               {data.deviceId}
             </div>
-            <div className={styles.actions}>
-              <EditBtn onPress={editHandler} />
-              <DeleteBtn onPress={deleteHandler} />
-            </div>
+            {admin && (
+              <div className={styles.actions}>
+                <EditBtn onPress={editHandler} />
+                <DeleteBtn onPress={deleteHandler} />
+              </div>
+            )}
           </div>
           <div className={styles.info}>
             <div className={styles.userImage}>

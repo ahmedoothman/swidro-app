@@ -155,6 +155,7 @@ const Staff = React.memo(() => {
       passwordConfirm: PasswordConfirmInputRef.current.getInputValue(),
       role: role,
     };
+
     // validata the input
     const valid = validateInput(data);
     if (valid) {
@@ -215,6 +216,7 @@ const Staff = React.memo(() => {
         PasswordConfirmInputRef.current.activeError();
         return;
       } else {
+        data.passwordConfirm = PasswordConfirmInputRef.current.getInputValue();
         passwordInputRef.current.clearError();
         PasswordConfirmInputRef.current.clearError();
       }
