@@ -278,42 +278,7 @@ const Monitoring = React.memo(() => {
   return (
     <Fragment>
       <div className={styles.header}>
-        <div className={styles.SelectBox}>
-          {' '}
-          {/* Select */}
-          <FormControl
-            fullWidth
-            sx={{
-              '& .MuiInputBase-root': {
-                fontSize: '1.3rem',
-              },
-            }}
-          >
-            <InputLabel
-              id='demo-simple-select-label'
-              sx={{
-                fontSize: '1.3rem',
-              }}
-            >
-              Select Amenity
-            </InputLabel>
-            <Select
-              labelId='demo-simple-select-label'
-              id='demo-simple-select'
-              value={amenitiesSelected}
-              label='Select Amenity'
-              onChange={async (e) => {
-                setAmenitiesSelected(e.target.value);
-              }}
-            >
-              {amenitiesData.map((el) => (
-                <MenuItem key={el.id} value={el.value}>
-                  {el.value}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        </div>
+        <div className={styles.SelectBox}> {/* Select */}</div>
         <div className={styles.addBtn}>
           <AddBtn text='Add' onPress={openFormHandler} />
         </div>

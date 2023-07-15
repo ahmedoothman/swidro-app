@@ -63,18 +63,20 @@ const TopNav = React.memo(() => {
           </div>
         </div>
         <div className={styles.rightBox}>
-          <div
-            className={styles.notificationsBox}
-            onClick={() => {
-              navigate('/dashboard/notifications');
-            }}
-          >
-            <div className={styles.notificationsIcon}>
-              <img src={NotiIcon} alt='noti-icon' />
+          {false && (
+            <div
+              className={styles.notificationsBox}
+              onClick={() => {
+                navigate('/dashboard/notifications');
+              }}
+            >
+              <div className={styles.notificationsIcon}>
+                <img src={NotiIcon} alt='noti-icon' />
+              </div>
+              {true && <span className={styles.notificationsCount}>1</span>}
+              <p>Notifications</p>
             </div>
-            {true && <span className={styles.notificationsCount}>1</span>}
-            <p>Notifications</p>
-          </div>
+          )}
           {/* pb */}
           <ProfileBox />
         </div>

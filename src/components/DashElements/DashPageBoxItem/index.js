@@ -5,15 +5,24 @@ import styles from './index.module.scss';
 // components
 import { EditBtn } from '../../buttons/EditBtn';
 import { DeleteBtn } from '../../buttons/DeleteBtn';
+import { SavedBtn } from '../../buttons/SavedBtn';
 // imgs
 import DeviceIcon from '../../../assets/icons/device-icon-sm.svg';
 import UserIcon from '../../../assets/icons/user-icon-md.svg';
 import HeartRateIcon from '../../../assets/icons/heart-rate-icon.svg';
 import BatteryIcon from '../../../assets/icons/battery-icon.svg';
+
+// redux
+import { useDispatch } from 'react-redux';
+// store autActions
+import { authActions } from '../../../store/auth-slice';
+// services
+import { publishMessage } from '../../../services/mqttServices';
 /***************************************************************************/
 /* Name : DashPageBoxItem React Component */
 /***************************************************************************/
 const DashPageBoxItem = React.memo(({ data, onDelete, onEdit, admin }) => {
+  const dispatch = useDispatch();
   /***************************************************************************/
   /* Edit Handler */
   /***************************************************************************/
@@ -29,6 +38,17 @@ const DashPageBoxItem = React.memo(({ data, onDelete, onEdit, admin }) => {
     // check if the function is passed
     if (!onDelete) return;
     onDelete(data._id);
+  };
+  const savedHandler = () => {
+    //publish message
+    publishMessage(`N`);
+    // dispatch the action
+    dispatch(
+      authActions.updateStatusForSwimmer({
+        deviceId: data.deviceId,
+        status: 'normal',
+      })
+    );
   };
   // useEffect
   useEffect(() => {
@@ -55,6 +75,9 @@ const DashPageBoxItem = React.memo(({ data, onDelete, onEdit, admin }) => {
             </div>
             {admin && (
               <div className={styles.actions}>
+                {data.status !== 'normal' && (
+                  <SavedBtn onPress={savedHandler} />
+                )}
                 <EditBtn onPress={editHandler} />
                 <DeleteBtn onPress={deleteHandler} />
               </div>

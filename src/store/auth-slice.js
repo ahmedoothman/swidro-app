@@ -1,6 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 // cookies
 import Cookies from 'js-cookie';
+//
+import { Howl } from 'howler';
+// sound files
+import soundFile from '../assets/audio/emergency.mp3';
+const sound = new Howl({
+  src: [soundFile],
+});
 
 const initialState = {
   api_url: 'http://localhost:5000',
@@ -45,7 +52,7 @@ const authSlice = createSlice({
     updateSwimmer(state, action) {
       // update the data from customers
       state.swimmers = state.swimmers.map((swimmer) =>
-        swimmer._id === action.payload._id ? action.payload : { swimmer }
+        swimmer._id == action.payload._id ? action.payload : { swimmer }
       );
     },
     updateUser(state, action) {
@@ -54,8 +61,37 @@ const authSlice = createSlice({
       state.email = action.payload.email;
     },
     test(state, action) {
-      console.log('test from services');
-      console.log(action.payload);
+      // console.log('test from services');
+      // console.log(action.payload);
+    },
+    updateBatteryForSwimmer(state, action) {
+      // the swimmer with the same deviceId
+      const swimmer = state.swimmers.find(
+        (swimmer) => swimmer.deviceId == action.payload.deviceId
+      );
+      // update the battery
+      swimmer.battery = action.payload.battery;
+    },
+    updateHeartRateForSwimmer(state, action) {
+      // the swimmer with the same deviceId
+      const swimmer = state.swimmers.find(
+        (swimmer) => swimmer.deviceId == action.payload.deviceId
+      );
+      // update the battery
+      swimmer.heartRate = action.payload.hr;
+    },
+    updateStatusForSwimmer(state, action) {
+      if (action.payload.status !== 'normal') {
+        sound.play();
+      } else {
+        sound.stop();
+      }
+      // the swimmer with the same deviceId
+      const swimmer = state.swimmers.find(
+        (swimmer) => swimmer.deviceId == action.payload.deviceId
+      );
+      // update the battery
+      swimmer.status = action.payload.status;
     },
   },
 });
