@@ -297,7 +297,7 @@ const Monitoring = React.memo(() => {
       <FormPopUp open={openForm} handleClose={closeFormHandler}>
         <div className={styles.formContainer}>
           <div className={styles.formHeader}>
-            <h1>{formMode === 'add' ? 'Add' : 'Edit'} Devices</h1>
+            <h1>{formMode === 'add' ? 'Add' : 'Edit'} Swimmers</h1>
           </div>
           <div className={styles.formBody}>
             <WideInputField

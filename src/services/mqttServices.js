@@ -112,7 +112,7 @@ client.connect({
   useSSL: false,
 });
 export const publishMessage = (message) => {
-  client.publish('GW1/SWIDRO1/ACC', message);
+  client.publish('GW1/ALERT', message);
 };
 export const startMqttClient = (data) => {
   // logic

@@ -192,6 +192,7 @@ export const signUpService = async (data) => {
     const response = await axios.post(`${api_url}/api/resort/signup`, data);
     return { status: 'success' };
   } catch (error) {
+    console.log(error);
     if (error.code === 'ERR_NETWORK') {
       return {
         status: 'error',

@@ -10,7 +10,7 @@ const sound = new Howl({
 });
 
 const initialState = {
-  api_url: 'http://localhost:5000',
+  api_url: 'http://localhost:3500',
   model_api_url: 'http://localhost:2023',
   role: Cookies.get('role'),
   userName: Cookies.get('userName'),
